@@ -1,0 +1,204 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.blur-it {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+a.btn {
+  width: 200px;
+  padding: 18px 0;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 0;
+  background: #e2525c;
+}
+
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(41, 171, 164, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  width: 50%;
+  max-width: 600px;
+  min-width: 320px;
+  height: auto;
+  display: block;
+  margin: 50% 50% 50% -300px;
+  position: relative;
+  background: #fff;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-wrapper.open .modal {
+  margin-top: -200px;
+  opacity: 1;
+}
+
+.head { 
+  width: 100%;
+  height: auto;
+  padding: 12px 30px;
+  overflow: hidden;
+  background: #4f6ae0;
+}
+
+.btn-close {
+  font-size: 28px;
+  display: block;
+  float: right;
+  color: #fff;
+}
+
+.content {
+  padding: 5%;
+  position: relative;
+}
+
+.message-text {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #000000;
+}
+
+.message-text h1 {
+  font-size: 25px;
+}
+
+@media (min-width:0px) and (max-width: 390px){
+  .modal{
+    top: 35%; 
+    left: 90%;
+    width: 50%;
+    max-width: 600px;
+    min-width: 320px;
+    height: auto;
+    display: block;
+    margin: 50% -300px;
+    background: #fff;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+/* Smartphones (вертикальная и горизонтальная ориентация) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  /* стили */
+  }
+  
+  /* Smartphones (горизонтальная) ----------- */
+  @media only screen and (min-width: 321px) {
+  /* стили */
+  }
+  
+  /* Smartphones (вертикальная) ----------- */
+  @media only screen and (max-width: 320px) {
+  /* стили */
+  }
+  
+  /* iPads (вертикальная и горизонтальная) ----------- */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* стили */
+  }
+  
+  /* iPads (горизонтальная) ----------- */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* стили */
+  }
+  
+  /* iPads (вертикальная) ----------- */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  /* стили */
+  }
+  
+  /* iPad 3**********/
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* стили */
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* стили */
+  }
+  
+  /* Настольные компьютеры и ноутбуки ----------- */
+  @media only screen  and (min-width: 1224px) {
+  /* стили */
+  }
+  
+  /* Большие экраны ----------- */
+  @media only screen  and (min-width: 1824px) {
+  /* стили */
+  }
+  
+  /* iPhone 4 ----------- */
+  @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* стили */
+  }
+  @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* стили */
+  }
+  
+  /* iPhone 5 ----------- */
+  @media only screen and (min-width: 320px) and (max-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2){
+  /* стили */
+  }
+  @media only screen and (min-width: 320px) and (max-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2){
+  /* стили */
+  }
+  
+  /* iPhone 6 ----------- */
+  @media only screen and (min-width: 375px) and (max-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2){
+    .modal{
+      top: 35%; 
+      left: 90%;
+      width: 50%;
+      max-width: 600px;
+      min-width: 320px;
+      height: auto;
+      display: block;
+      margin: 50% -300px;
+      background: #fff;
+      opacity: 0;
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+    }
+  }
