@@ -43,8 +43,8 @@ $(document).ready(function(){
             var ctx = $("#fake");
 
             var barGraph = new Chart(ctx, {
-                type: 'bar',
-                data: chardata
+                type: 'pie',
+                data: chardata,
             });
         },
         error: function(data) {

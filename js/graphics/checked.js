@@ -43,7 +43,7 @@ $(document).ready(function(){
             var ctx = $("#checked");
 
             var barGraph = new Chart(ctx, {
-                type: 'line',
+                type: 'pie',
                 data: chardata
             });
         },

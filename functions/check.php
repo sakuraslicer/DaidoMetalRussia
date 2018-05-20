@@ -25,21 +25,21 @@
         // Если код проверялся только 1 раз и в данный момент проверяется повторно
         else if($count < 1){
             $_SESSION['response'] = 2;
-            //$sql = mysqli_query($conn, "INSERT INTO checked (code, count_of_query, phoneNumber, geo, comment, day_of_query, month_of_query, year_of_query) VALUES ('$code', '1', '$phone', 'test', 'Проверен повторно', '$dquery', '$mquery', '$yquery')");
+            $sql = mysqli_query($conn, "INSERT INTO checked (code, count_of_query, phoneNumber, geo, comment, created_at, day_of_query, month_of_query, year_of_query) VALUES ('$code', '1', '$phone', 'test', 'Проверен повторно', '$date', '$dquery', '$mquery', '$yquery')");
             echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../index.php">';
         }
 
         // Код в БД существует и не проверялся
         if($exist1 != 0 && $exist2 == 0){
             $_SESSION['response'] = 1;
-            //$sql = mysqli_query($conn, "UPDATE code SET compare = '$code', isChecked = '1', phoneNumber = '$phone', geo = 'test', comment = 'Оригинал', day_of_query = '$dquery', month_of_query = '$mquery', year_of_query = '$yquery' WHERE code_number = '$code'");
+            $sql = mysqli_query($conn, "UPDATE code SET compare = '$code', isChecked = '1', phoneNumber = '$phone', geo = 'test', comment = 'Оригинал', day_of_query = '$dquery', month_of_query = '$mquery', year_of_query = '$yquery' WHERE code_number = '$code'");
             echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../index.php">';
         }
 
         // Код в БД не существует
         if($exist1 == 0){
             $_SESSION['response'] = 3;
-            //$sql = mysqli_query($conn, "INSERT INTO fake (code, phoneNumber, geo, comment, day_of_query, month_of_query, year_of_query) VALUES ('$code', '$phone', 'test', 'Контрафакт', '$dquery', '$mquery', '$yquery')");
+            $sql = mysqli_query($conn, "INSERT INTO fake (code, phoneNumber, geo, comment, day_of_query, month_of_query, year_of_query) VALUES ('$code', '$phone', 'test', 'Контрафакт', '$dquery', '$mquery', '$yquery')");
             echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../index.php">';
         }
     }

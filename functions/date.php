@@ -1,5 +1,3 @@
 <?php
-    $dquery = date("d");
-    $mquery = date("m");
-    $yquery = date("Y");
+    $date = date('Y-m-d H:i:s');
 ?>
