@@ -1,23 +1,44 @@
 <?php session_start();
 
-    if($_SESSION['response'] == 1){
+    if($_SESSION['response'] == 1) {
         $Response = $_SESSION['response'];
         $Status = "Оригинал!";
-        $Message = "Код ".$_SESSION['code']." подтвержден.<br>Вы приобрели оригинальную продукцию «Дайдо Металл Русь»<br>Компания «Дайдо Металл Русь» благодарит Вас за выбор нашей продукции.";
+
+        $msgcode = $_SESSION['code'];
+        $one = substr($msgcode, 0, 3);
+        $two = substr($msgcode, 3, 3);
+        $three = substr($msgcode, 6, 3);
+        $four = substr($msgcode, 9, 3);
+
+        $Message = "Код ".$one."-".$two."-".$three."-".$four." подтвержден.<br>Вы приобрели оригинальную продукцию «Дайдо Металл Русь»<br>Компания «Дайдо Металл Русь» благодарит Вас за выбор нашей продукции.";
         unset($_SESSION['response']);
         session_destroy();
     }
-    else if($_SESSION['response'] == 2){
+    else if($_SESSION['response'] == 2) {
         $Response = $_SESSION['response'];
         $Status = "Повторная проверка!";
-        $Message = "Код ".$_SESSION['code']." проверен ранее.<br>Возможно, данный товар - подделка<br>За консультацией обратитесь по телефону +7 910-105-2000<br>";
+
+        $msgcode = $_SESSION['code'];
+        $one = substr($msgcode, 0, 3);
+        $two = substr($msgcode, 3, 3);
+        $three = substr($msgcode, 6, 3);
+        $four = substr($msgcode, 9, 3);
+
+        $Message = "Код ".$one."-".$two."-".$three."-".$four." проверен ранее.<br>Возможно, данный товар - подделка<br>За консультацией обратитесь по телефону +7 910-105-2000<br>";
         unset($_SESSION['response']);
         session_destroy();
     }
-    else if($_SESSION['response'] == 3){
+    else if($_SESSION['response'] == 3) {
         $Response = $_SESSION['response'];
         $Status = "Внимание, контрафакт!";
-        $Message = "Код ".$_SESSION['code']." не подтвержден.<br>Если Вы не ошиблись при вводе кода, продукция является поддельной.<br>За консультацией обратитесь по телефону +7 910-105-2000<br>";
+
+        $msgcode = $_SESSION['code'];
+        $one = substr($msgcode, 0, 3);
+        $two = substr($msgcode, 3, 3);
+        $three = substr($msgcode, 6, 3);
+        $four = substr($msgcode, 9, 3);;
+
+        $Message = "Код ".$one."-".$two."-".$three."-".$four." не подтвержден.<br>Если Вы не ошиблись при вводе кода, продукция является поддельной.<br>За консультацией обратитесь по телефону +7 910-105-2000<br>";
         unset($_SESSION['response']);
         session_destroy();
     }
@@ -39,7 +60,7 @@
         <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 
         <script type="text/javascript">
-        
+
             function PageReload(){
 
                 var a = {
@@ -89,7 +110,7 @@
                 </script>
             </form>
         </div>
-        
+
         <link rel="stylesheet" href="css/modal.css">
 
         <!--Modal window-->
@@ -108,7 +129,7 @@
                 </div>
             </div>
         </div>
-                            
+
         <link rel="stylesheet" href="css/menu.css">
         <header class="header">
             <div class="hamburger">

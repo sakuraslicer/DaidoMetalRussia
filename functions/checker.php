@@ -1,9 +1,9 @@
 <?php
     // Таблица code 1 столбец
-    $original = mysqli_query($conn, "SELECT code_number FROM code WHERE EXISTS(SELECT code_number FROM code WHERE code_number='$code')");
+    $original = mysqli_query($conn, "SELECT code_number FROM code WHERE EXISTS(SELECT code_number FROM code WHERE code_number = '$code')");
     // Таблица code 2 столбец
-    $checked = mysqli_query($conn, "SELECT compare FROM code WHERE EXISTS(SELECT code_number FROM code WHERE compare='$code')");
-    
+    $checked = mysqli_query($conn, "SELECT compare FROM code WHERE EXISTS(SELECT code_number FROM code WHERE compare = '$code')");
+
     // Проверка существования ячейки
     $exist1 = $original->num_rows;
     $exist2 = $checked->num_rows;

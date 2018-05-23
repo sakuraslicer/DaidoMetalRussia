@@ -97,7 +97,7 @@ CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `login` varchar(191) CHARACTER SET utf8 NOT NULL,
   `password` varchar(191) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
