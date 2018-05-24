@@ -14,7 +14,7 @@
 	$click = mysqli_query($mysqli, $sql);
 	$click = mysqli_fetch_all($click, MYSQLI_ASSOC);
     $click = json_encode(array_column($click, 'geo'), JSON_NUMERIC_CHECK);
-
+    echo("<br>");
     print json_encode($click);
 
 	/* Getting demo_click table data */
@@ -26,8 +26,8 @@
         $data[] = $row;
     }
     $json = json_encode($data);
-    //echo($json);
-    //print json_encode($data);
+    
+    print json_encode($data);
     
     //echo($click);
     $data = array();
@@ -39,6 +39,7 @@
             echo($value);
         }
     }
+    echo("<br>");
     print_r($data);
 ?>
 

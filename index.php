@@ -44,9 +44,10 @@
     }
 ?>
 <html>
-    <head>
+    <head lang="ru">
         <!--Head-->
-        <meta charset="UTF-8">
+        <meta charset="utf8" />
+        <!--Preloader css file-->
         <title>Daido Metal Russia Protect</title>
         <!--Styles-->
         <link rel="stylesheet" href="css/index.css">
