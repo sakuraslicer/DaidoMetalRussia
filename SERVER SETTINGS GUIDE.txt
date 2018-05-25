@@ -1,11 +1,13 @@
 [SERVER SETTINGS]
 
 STEP 0: Update + net-tools + nano
+
 	yum update
 	yum install net-tools
 	yum install nano
 	
 STEP 1: LAMP INSTALL
+
 	1.1 Install Apache:
 	
 	sudo yum install httpd
@@ -25,6 +27,7 @@ STEP 1: LAMP INSTALL
 	sudo systemctl restart httpd.service
 
 STEP 2: IPTABLES SETTINGS
+
 	2.1 Set firewall 80 port
 	
 	iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
@@ -43,8 +46,5 @@ STEP 2: IPTABLES SETTINGS
 	
 STEP 3: DATABASE SETTINGS
 	
-	3.1
-	
-	
-	
-	https://moonback.ru/page/centos7-utf8
+	3.1 Create database
+	3.2 Import database
