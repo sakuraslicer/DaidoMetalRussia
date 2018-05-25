@@ -1,0 +1,50 @@
+[SERVER SETTINGS]
+
+STEP 0: Update + net-tools + nano
+	yum update
+	yum install net-tools
+	yum install nano
+	
+STEP 1: LAMP INSTALL
+	1.1 Install Apache:
+	
+	sudo yum install httpd
+	sudo systemctl start httpd.service
+	sudo systemctl enable httpd.service
+
+	1.2 Install MySQL (MariaDB)
+	
+	sudo yum install mariadb-server mariadb
+	sudo systemctl start mariadb
+	sudo mysql_secure_installation
+	sudo systemctl enable mariadb.service
+
+	1.3 Install PHP
+	
+	sudo yum install php php-mysql
+	sudo systemctl restart httpd.service
+
+STEP 2: IPTABLES SETTINGS
+	2.1 Set firewall 80 port
+	
+	iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+	
+	2.2 Edit firewall setting file
+	
+	cd /etc/sysconfig/
+	[FILE]: iptables-config
+	IPTABLES_SAVE_ON_STOP="yes"
+	IPTABLES_SAVE_ON_RESTART="yes"
+	
+	2.3 Save firewall rule
+	
+	iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+	firewall-cmd --zone=public --add-port=80/tcp --permanent
+	
+STEP 3: DATABASE SETTINGS
+	
+	3.1
+	
+	
+	
+	https://moonback.ru/page/centos7-utf8
