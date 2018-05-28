@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="../includes/jquery-3.3.1.min.js"></script>
+        <script src="code/highstock.js"></script>
+        <script src="code/themes/grid-light.js"></script>
+        <script src="code/modules/exporting.js"></script>
+
+        <div id="OriginalContainer" style="height: 500px; min-width: 310px"></div>
+        <script>
+            Highcharts.setOptions({
+                lang:{
+                    loading: 'Загрузка...',
+                    months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                    weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                    shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+                    exportButtonTitle: "Экспорт",
+                    printButtonTitle: "Печать",
+                    rangeSelectorFrom: "С",
+                    rangeSelectorTo: "По",
+                    rangeSelectorZoom: "Период",
+                    downloadPNG: 'Скачать PNG',
+                    downloadJPEG: 'Скачать JPEG',
+                    downloadPDF: 'Скачать PDF',
+                    downloadSVG: 'Скачать SVG',
+                    printChart: 'Напечатать график'
+                }
+            });
+        </script>
+
+        <script type="text/javascript">
+            $.getJSON('json.php', function(data){
+                var codes = [],
+                dataLength = data.length,
+
+                i = 0;
+                for(i; i < dataLength; i++){
+                    codes.push([
+                        data[i][0]*1000,
+                        data[i][1],
+                    ]);
+                }
+
+                // CREATE THE CHART
+                Highcharts.stockChart('OriginalContainer', {
+                    
+                    rangeSelector: {
+                        selected: 1,
+                        buttons: [{
+                            type: 'minute',
+                            count: 10,
+                            text: '10м'
+                        }, {
+                            type: 'hour',
+                            count: 1,
+                            text: '1час'
+                        }, {
+                            type: 'hour',
+                            count: 6,
+                            text: '6час'
+                        }, {
+                            type: 'day',
+                            count: 1,
+                            text: '1дн'
+                        }, {
+                            type: 'week',
+                            count: 1,
+                            text: 'нед'
+                        }, {
+                            type: 'month',
+                            count: 1,
+                            text: 'мес'
+                        }, {
+                            type: 'year',
+                            count: 1,
+                            text: 'год'
+                        }, {
+                            type: 'all',
+                            text: 'Всё'
+                        }]
+                    },
+                    
+                    rangeSelector:{
+                        selected: 1
+                    },
+
+                    title:{
+                        text: 'Уникальные запросы за период'
+                    },
+                    subtitle:{
+                        text: 'ООО Дайдо Металл Русь'
+                    },
+                    yAxis:[{
+                        labels:{
+                            align: 'right',
+                            x: -3
+                        },
+                        title:{
+                            text: 'Количество запросов'
+                        },
+                        height: '50%',
+                        lineWidth: 1,
+                        resize:{
+                            enabled: true
+                        }
+                    }],
+
+                    tooltip:{
+                        split: true
+                    },
+
+                    series:[{
+                        type: 'spline',
+                        name: 'Проверок ',
+                        data: codes,
+                        marker:{
+                            enabled: true,
+                            radius: 3
+                        },
+                        shadow: true,
+                        tooltip: {
+                            text: codes
+                        },
+                        yAxis: 0
+                    }]
+                });
+            });
+        </script>
+    </body>
+</html>
