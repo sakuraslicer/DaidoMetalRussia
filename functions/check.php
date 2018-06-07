@@ -17,8 +17,8 @@
         include_once('checker.php');
         
         //[TESTER]
-        echo("Введенный код: $code<br>Оригинал:<br>");
-        echo "1 столбец: ".$quebec[0]."<br> 2 столбец: ".$quebec[1]."<br>Таблица проверенных кодов: ".$whiskey[0]."<br>Количество проверок: ".$whiskey[1];
+        // echo("Введенный код: $code<br>Оригинал:<br>");
+        // echo "1 столбец: ".$quebec[0]."<br> 2 столбец: ".$quebec[1]."<br>Таблица проверенных кодов: ".$whiskey[0]."<br>Количество проверок: ".$whiskey[1];
 
         // print_r($original);
         // echo("<br>");

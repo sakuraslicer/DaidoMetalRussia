@@ -28,10 +28,8 @@ if(isset($_POST['submit']))
     // Если нет ошибок, то добавляем в БД нового пользователя
     if(count($err) == 0)
     {
-
         $login = $_POST['login'];
-
-        // Убераем лишние пробелы и делаем двойное хеширование
+        // Убираем лишние пробелы и делаем двойное хеширование
         $password = md5(md5(trim($_POST['password'])));
 
         mysqli_query($conn, "INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
