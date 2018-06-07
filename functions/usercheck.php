@@ -18,7 +18,7 @@ if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
     }
     else
     {
-        print "Привет, ".$userdata['user_login'].". Всё работает!";
+        echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../menu.html">';
     }
 }
 else
