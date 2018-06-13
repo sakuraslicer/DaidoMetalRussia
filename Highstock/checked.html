@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script src="../includes/jquery-3.3.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>    
+    <div id="container" style="height: 500px; min-width: 310px"></div>
+
+        <script type="text/javascript">
+        $.getJSON('checked.php', function(data){
+            
+            var place = [],
+            count = [],
+            dataLength = data.length,
+
+            i = 0;
+            for(i; i < dataLength; i++){
+                place.push([
+                    data[i][0],
+                    data[i][1]
+                ]),
+                count.push([
+                    data[i][1]
+                ]);
+            }
+            console.log(place);
+            // Radialize the colors
+            Highcharts.setOptions({
+                colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+                    return {
+                        radialGradient: {
+                            cx: 0.5,
+                            cy: 0.3,
+                            r: 0.7
+                        },
+                        stops: [
+                            [0, color],
+                            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                        ]
+                    };
+                })
+            });
+            
+            // Build the chart
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'География контрафактных запросов'
+                },
+                subtitle:{
+                    text: 'ООО Дайдо Металл Русь'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f}%',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            },
+                            connectorColor: 'silver'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Проверен ранее',
+                    data: place
+                }]
+            });
+        });
+        </script>
+    </body>
+</html>

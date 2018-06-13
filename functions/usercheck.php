@@ -17,7 +17,7 @@ if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
     }
     else
     {
-        echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../menu.html">';
+        echo'<meta http-equiv = "Refresh" content = "0 ; URL = menu.html">';
     }
 }
 else
