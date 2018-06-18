@@ -2,7 +2,7 @@
 // Скрипт проверки
 
 // Соединямся с БД
-include "connect.php";
+include "../functions/connect.php";
 
 if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 {
@@ -13,7 +13,7 @@ if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
     {
         setcookie("id", "", time() - 3600*24*30*12, "/");
         setcookie("hash", "", time() - 3600*24*30*12, "/");
-        print "Хм, что-то не получилось";
+        print "access denied";
     }
     else
     {

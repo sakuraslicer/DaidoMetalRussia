@@ -1,4 +1,5 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8');
     session_start();
     if(isset($_POST['check'])){
         // Подключение к БД
@@ -59,6 +60,7 @@
         // Код в БД не существует
         if(!$quebec[0]){
             $_SESSION['response'] = 3;
+            mysqli_set_charset($mysqli, "cp1251");
             $sql = mysqli_query($conn, "INSERT INTO fake (code, phoneNumber, geo, comment, created_at) VALUES ('$code', '$phone', '$region_ru', 'Контрафакт', '$date')");
             echo'<meta http-equiv = "Refresh" content = "0 ; URL = ../index.php">';
 

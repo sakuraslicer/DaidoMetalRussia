@@ -1,4 +1,5 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8');
     // Таблица code 
     $original = mysqli_query($conn, "SELECT code_number, compare FROM code WHERE code_number = '$code'");
     $quebec = mysqli_fetch_array($original);

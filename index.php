@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+header('Content-Type: text/html; charset=utf-8');
+session_start();
 
     if($_SESSION['response'] == 1) {
         $Response = $_SESSION['response'];
@@ -46,7 +48,7 @@
 <html>
     <head lang="ru">
         <!--Head-->
-        <meta charset="utf8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!--Preloader css file-->
         <title>Daido Metal Russia Protect</title>
         <!--Styles-->

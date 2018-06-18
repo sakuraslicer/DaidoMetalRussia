@@ -13,7 +13,7 @@ function generateCode($length=6) {
 }
 
 // Соединямся с БД
-include "connect.php";
+include "../functions/connect.php";
 
 if(isset($_POST['submit']))
 {
